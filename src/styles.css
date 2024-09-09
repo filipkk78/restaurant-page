@@ -35,14 +35,15 @@ body {
     height: 100vh;
     background-color: #211A1D;
     display: grid;
-    grid-template: 2fr 15fr / 1fr;
+    grid-template: 100px 15fr / 1fr;
 }
 
 header {
-    background-color: #90FCF9;
+    background-color: #3772FF;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 8px 8px 24px 0px rgb(30, 30, 30);
 }
 
 header nav {
@@ -55,13 +56,46 @@ header nav {
 
 header nav button {
     background-color: #211A1D;
-    border: 2px solid gray;
+    border: 5px solid #E6E8E6;
+    border-radius: 10px;
     width: 150px;
-    height: 80px;
+    height: 100%;
     color: white;
     font-size: 2em;
 }
 
 header nav button:active {
     background-color: #000000 ;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 50px;
+}
+
+.container {
+    border: 5px solid #E6E8E6;
+    background-color: #3772FF;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    margin-left: 200px;
+    margin-right: 200px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 8px 8px 24px 0px rgb(30, 30, 30);
+}
+
+img {
+    width: 50%;
+}
+
+.container p {
+    font-size: 2em;
 }
