@@ -1,5 +1,7 @@
 import "./styles.css";
 import loadHomePage from "./modules/home";
+import loadMenuPage from "./modules/menu";
+import loadContactPage from "./modules/contact";
 
 function clearPage() {
     const content = document.querySelector("#content");
@@ -27,3 +29,10 @@ contactBtn.addEventListener("click", () => {
     clearPage();
     loadContactPage();
 });
+
+const clearBtn = document.querySelector("#clear");
+clearBtn.addEventListener("click", () => {
+    clearPage();
+});
+
+export default clearPage;

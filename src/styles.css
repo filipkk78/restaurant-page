@@ -30,20 +30,29 @@ p, h1, h2, h3, h4, h5, h6 {
     font-style: normal;
 }
 
+:root {
+  --main-color: #211A1D;
+  --accent-color: #D3F3EE;
+  --main-bg-color: #38ec50;
+}
+
 body {
     font-family: 'Roboto';
     height: 100vh;
-    background-color: #211A1D;
     display: grid;
     grid-template: 100px 15fr / 1fr;
+    background: linear-gradient(160deg, #ff0000, #007af1);
+    background-attachment: fixed;
 }
 
 header {
-    background-color: #3772FF;
+    background-color: var(--main-color);
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 8px 8px 24px 0px rgb(30, 30, 30);
+    position: sticky;
+    top: 0;
 }
 
 header nav {
@@ -55,12 +64,12 @@ header nav {
 }
 
 header nav button {
-    background-color: #211A1D;
-    border: 5px solid #E6E8E6;
+    background-color: var(--main-color);
+    border: 5px solid var(--accent-color);
     border-radius: 10px;
     width: 150px;
     height: 100%;
-    color: white;
+    color: var(--accent-color);
     font-size: 2em;
 }
 
@@ -72,13 +81,12 @@ header nav button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--accent-color);;
     padding: 50px;
 }
 
 .container {
-    border: 5px solid #E6E8E6;
-    background-color: #3772FF;
+    border: 5px solid var(--accent-color);;
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -86,7 +94,7 @@ header nav button:active {
     margin-right: 200px;
     display: flex;
     justify-content: flex-start;
-    padding: 10px 20px;
+    padding: 20px;
     flex-direction: column;
     align-items: center;
     box-shadow: 8px 8px 24px 0px rgb(30, 30, 30);
@@ -98,4 +106,58 @@ img {
 
 .container p {
     font-size: 2em;
+}
+
+form {
+  display: grid;
+  gap: 8px;
+  width: 400px;
+}
+
+input, textarea {
+  resize: none;
+  background-color: var(--main-color);
+  color: var(--accent-color);;
+  border: 2px solid var(--accent-color);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+input {
+  height: 35px;
+}
+
+textarea {
+  height: 40ch;
+}
+
+#submitBtn {
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 10px;
+  height: 40px;
+  margin-top: 20px;
+  color: var(--accent-color);
+  font-weight: 400;
+  font-size: 1.5em;
+  box-shadow: 1px 1px 48px 0px rgb(30, 30, 30);
+  border: 5px solid var(--accent-color);
+  line-height: 1;
+}
+
+#submitBtn:active {
+  background-color: #000000;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+input:user-invalid {
+  border: 2px solid red
+}
+
+.link:hover {
+  color: #007af1;
+  text-decoration: underline #007af1;
 }
