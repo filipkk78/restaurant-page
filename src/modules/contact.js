@@ -41,6 +41,16 @@ function loadContactPage() {
     email.setAttribute("name", "email");
     email.setAttribute("id", "email");
     form.appendChild(email);
+    const topicLabel = document.createElement("label");
+    topicLabel.setAttribute("for", "topic")
+    topicLabel.textContent = "Topic";
+    form.appendChild(topicLabel)
+    const topic = document.createElement("input");
+    topic.setAttribute("type", "text")
+    topic.setAttribute("required", "");
+    topic.setAttribute("name", "topic");
+    topic.setAttribute("id", "topic");
+    form.appendChild(topic);
     const messageLabel = document.createElement("label");
     messageLabel.setAttribute("for", "message");
     messageLabel.textContent = "Message";
