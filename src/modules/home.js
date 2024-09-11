@@ -7,14 +7,14 @@ function loadHomePage() {
     content.appendChild(container);
     const h1 = document.createElement("h1");
     container.appendChild(h1);
-    h1.textContent = "Welcome to our restaurant";
+    h1.textContent = "Welcome to our restaurant!";
     const image = document.createElement("img");
     image.src = imgPath;
     image.alt = "Dining";
     container.appendChild(image);
     const p = document.createElement("p");
     container.appendChild(p);
-    p.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus at eligendi dicta aspernatur quo maxime, incidunt dolore illum. Libero beatae sit ducimus officiis sequi cum aliquid! Numquam, ipsam. Ab, voluptatibus."
+    p.textContent = "Here at our restaurant we try our best to prepare food at the highest standard. Our main selling point is pizza, but we also have other foods such as fries, burgers, hot dogs, kebab and many more."
 }
 
 export default loadHomePage;
