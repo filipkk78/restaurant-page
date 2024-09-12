@@ -130,7 +130,7 @@ function loadMenuPage() {
     priceContainerSizeS.textContent = "S";
     priceContainerS.appendChild(priceContainerSizeS);
     const priceContainerMultiplierS = document.createElement("p");
-    priceContainerMultiplierS.textContent = "x0.7";
+    priceContainerMultiplierS.textContent = "x0.8";
     priceContainerS.appendChild(priceContainerMultiplierS);
     //
     const priceContainerM = document.createElement("div");
@@ -307,7 +307,7 @@ function loadMenuPage() {
         h1.textContent = "Thank you for placing your order";
         container.appendChild(h1);
         const p1 = document.createElement("p");
-        p1.textContent = `Your price is ${pizzaPrice+2}$ (${pizzaPrice} + 2$ delivery fee)`;
+        p1.textContent = `Your price is ${pizzaPrice+2}$ (${pizzaPrice}$ + 2$ delivery fee)`;
         container.appendChild(p1);
         const p = document.createElement("p");
         p.textContent = "Please wait while we prepare your food"
