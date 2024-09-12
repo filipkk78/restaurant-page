@@ -10,7 +10,7 @@ function clearPage() {
     }
 }
 
-// document.addEventListener("DOMContentLoaded", loadHomePage);
+document.addEventListener("DOMContentLoaded", loadHomePage);
 
 const homeBtn = document.querySelector("#home");
 homeBtn.addEventListener("click", () => {

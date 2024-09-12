@@ -1,10 +1,14 @@
+import clearPage from "..";
+import loadHomePage from "./home";
+
 const pizzas = [];
 
 class pizza {
-    constructor(name, toppings, price) {
+    constructor(name, toppings, price, val) {
     this.name = name;
     this.toppings = toppings;
     this.price = price;
+    this.val = val
     pizzas.push(this);
 }
 }
@@ -16,7 +20,8 @@ const pepperoni = new pizza(
         "mozzarella cheese", 
         "tomato sauce"
     ], 
-    14
+    14,
+    "pepperoni"
 );
 const burrata = new pizza(
     "Burrata Pizza", 
@@ -27,7 +32,8 @@ const burrata = new pizza(
         "mozzarella cheese", 
         "fresh basil"
     ], 
-    23
+    23,
+    "burrata"
 );
 const jalapeno = new pizza(
     "Jalapeno Pizza", 
@@ -38,7 +44,8 @@ const jalapeno = new pizza(
         "sweet corn", 
         "salsa verde"
     ],
-    32
+    32,
+    "jalapeno"
 );
 
 const diavola = new pizza (
@@ -49,7 +56,8 @@ const diavola = new pizza (
         "tomato sauce",
         "chili peppers"
     ],
-    19
+    19,
+    "diavola"
 );
 
 const hawaiian = new pizza (
@@ -60,7 +68,8 @@ const hawaiian = new pizza (
         "tomato sauce",
         "pineapple"
     ],
-    26
+    26,
+    "hawaiian"
 );
 
 const taco = new pizza (
@@ -72,10 +81,9 @@ const taco = new pizza (
         "onion",
         "tortilla chips"
     ],
-    21
+    21,
+    "taco"
 )
-
-// console.log(pizzas);
 
 function loadMenuPage() {
     const content = document.querySelector("#content");
@@ -102,7 +110,59 @@ function loadMenuPage() {
     const h1two = document.createElement("h1");
     menuSidebar.appendChild(h1two);
     h1two.textContent = "Order";
-    // 
+    //
+    const prices = document.createElement("div");
+    prices.classList.add("prices");
+    menuSidebar.appendChild(prices);
+    //
+    const priceMultipliersTitle = document.createElement("p");
+    priceMultipliersTitle.textContent = "Price multipliers";
+    prices.appendChild(priceMultipliersTitle);
+    //
+    const priceMultipliers = document.createElement("div");
+    priceMultipliers.classList.add("price-multipliers");
+    prices.appendChild(priceMultipliers);  
+    //
+    const priceContainerS = document.createElement("div");
+    priceContainerS.classList.add("price-container");
+    priceMultipliers.appendChild(priceContainerS);
+    const priceContainerSizeS = document.createElement("p");
+    priceContainerSizeS.textContent = "S";
+    priceContainerS.appendChild(priceContainerSizeS);
+    const priceContainerMultiplierS = document.createElement("p");
+    priceContainerMultiplierS.textContent = "x0.7";
+    priceContainerS.appendChild(priceContainerMultiplierS);
+    //
+    const priceContainerM = document.createElement("div");
+    priceContainerM.classList.add("price-container");
+    priceMultipliers.appendChild(priceContainerM);
+    const priceContainerSizeM = document.createElement("p");
+    priceContainerSizeM.textContent = "M";
+    priceContainerM.appendChild(priceContainerSizeM);
+    const priceContainerMultiplierM = document.createElement("p");
+    priceContainerMultiplierM.textContent = "x1.0";
+    priceContainerM.appendChild(priceContainerMultiplierM);
+    //
+    const priceContainerL = document.createElement("div");
+    priceContainerL.classList.add("price-container");
+    priceMultipliers.appendChild(priceContainerL);
+    const priceContainerSizeL = document.createElement("p");
+    priceContainerSizeL.textContent = "L";
+    priceContainerL.appendChild(priceContainerSizeL);
+    const priceContainerMultiplierL = document.createElement("p");
+    priceContainerMultiplierL.textContent = "x1.2";
+    priceContainerL.appendChild(priceContainerMultiplierL);
+    //
+    const priceContainerXL = document.createElement("div");
+    priceContainerXL.classList.add("price-container");
+    priceMultipliers.appendChild(priceContainerXL);
+    const priceContainerSizeXL = document.createElement("p");
+    priceContainerSizeXL.textContent = "XL";
+    priceContainerXL.appendChild(priceContainerSizeXL);
+    const priceContainerMultiplierXL = document.createElement("p");
+    priceContainerMultiplierXL.textContent = "x1.5";
+    priceContainerXL.appendChild(priceContainerMultiplierXL);
+    //
     const form = document.createElement("form");
     menuSidebar.appendChild(form);
     // 
@@ -120,40 +180,20 @@ function loadMenuPage() {
     selectDefault.setAttribute("value", "");
     selectDefault.textContent = "--Select your pizza toppings--"
     select.appendChild(selectDefault);
-    // 
-    const pepperoni = document.createElement("option");
-    pepperoni.setAttribute("value", "pepperoni");
-    pepperoni.textContent = "Pepperoni Pizza";
-    select.appendChild(pepperoni);
     //
-    const burrata = document.createElement("option");
-    burrata.setAttribute("value", "burrata");
-    burrata.textContent = "Burrata Pizza";
-    select.appendChild(burrata);
-    //
-    const jalapeno = document.createElement("option");
-    jalapeno.setAttribute("value", "jalapeno");
-    jalapeno.textContent = "Jalapeno Pizza";
-    select.appendChild(jalapeno);
-    // 
-    const diavola = document.createElement("option");
-    diavola.setAttribute("value", "diavola");
-    diavola.textContent = "Pizza Diavola";
-    select.appendChild(diavola);
-    // 
-    const hawaiian = document.createElement("option");
-    hawaiian.setAttribute("value", "hawaiian");
-    hawaiian.textContent = "Hawaiian Pizza";
-    select.appendChild(hawaiian);
-    // 
-    const taco = document.createElement("option");
-    taco.setAttribute("value", "taco");
-    taco.textContent = "Taco Pizza";
-    select.appendChild(taco);
-    // 
+    for (let k = 0; k < pizzas.length; k++) {
+        const selectOption = document.createElement("option");
+        selectOption.setAttribute("value", k);
+        selectOption.textContent = pizzas[k].name;
+        select.appendChild(selectOption);
+    }; 
     const radios = document.createElement("div");
     radios.classList.add("radios");
     form.appendChild(radios);
+    //
+    const size = document.createElement("p");
+    size.textContent = "Size";
+    radios.appendChild(size);
     //
     const radioContainerOne = document.createElement("div");
     radioContainerOne.classList.add("radio-container");
@@ -175,6 +215,7 @@ function loadMenuPage() {
     radioS.setAttribute("type", "radio");
     radioS.setAttribute("name", "size");
     radioS.setAttribute("id", "s");
+    radioS.setAttribute("value", 0.8);
     radioContainerOne.appendChild(radioS);
     const radioOneLabel = document.createElement("label");
     radioOneLabel.setAttribute("for", "s");
@@ -185,6 +226,7 @@ function loadMenuPage() {
     radioM.setAttribute("type", "radio");
     radioM.setAttribute("name", "size");
     radioM.setAttribute("id", "m");
+    radioM.setAttribute("value", 1);
     radioContainerTwo.appendChild(radioM);
     const radioTwoLabel = document.createElement("label");
     radioTwoLabel.setAttribute("for", "m");
@@ -195,6 +237,7 @@ function loadMenuPage() {
     radioL.setAttribute("type", "radio");
     radioL.setAttribute("name", "size");
     radioL.setAttribute("id", "l");
+    radioL.setAttribute("value", 1.2);
     radioContainerThree.appendChild(radioL);
     const radioThreeLabel = document.createElement("label");
     radioThreeLabel.setAttribute("for", "l");
@@ -205,6 +248,7 @@ function loadMenuPage() {
     radioXL.setAttribute("type", "radio");
     radioXL.setAttribute("name", "size");
     radioXL.setAttribute("id", "xl");
+    radioXL.setAttribute("value", 1.5);
     radioContainerFour.appendChild(radioXL);
     const radioFourLabel = document.createElement("label");
     radioFourLabel.setAttribute("for", "xl");
@@ -251,21 +295,46 @@ function loadMenuPage() {
     btn.setAttribute("type", "submit");
     btn.textContent = "Submit";
     form.appendChild(btn);
+    btn.addEventListener("click", () => {
+        const pizzaType = document.querySelector("select").value;
+        const pizzaSize = document.querySelector('input[name="size"]:checked').value;
+        const pizzaPrice = pizzas[pizzaType].price*pizzaSize
+        //
+        while (container.firstChild) {
+            container.removeChild(container.lastChild);
+        };
+        const h1 = document.createElement("h1");
+        h1.textContent = "Thank you for placing your order";
+        container.appendChild(h1);
+        const p1 = document.createElement("p");
+        p1.textContent = `Your price is ${pizzaPrice+2}$ (${pizzaPrice} + 2$ delivery fee)`;
+        container.appendChild(p1);
+        const p = document.createElement("p");
+        p.textContent = "Please wait while we prepare your food"
+        container.appendChild(p);
+        const nextGoHome = document.createElement("p");
+        nextGoHome.addEventListener("click", () => {
+            clearPage()
+            loadHomePage()
+        });
+        nextGoHome.classList.add("link");
+        nextGoHome.textContent = "Back to home page";
+        container.appendChild(nextGoHome);
+    });
     //
     const menu = document.createElement("div");
     menu.classList.add("menu");
     menuContainer.appendChild(menu);
     //
-    for (let i = 0; i < 6 ; i++) {
+    for (let i = 0; i < pizzas.length ; i++) {
     const menuCard = document.createElement("div");
     menuCard.classList.add("menu-card");
     menuCard.setAttribute("id", `card${i}`);
     menu.appendChild(menuCard);
     }
-    for(let i = 0; i < 6 ; i++) {
+    for(let i = 0; i < pizzas.length ; i++) {
         const currentPizza = pizzas[i];
         const currentCard = document.querySelector(`#card${i}`);
-        console.log(`Current pizza is ${currentPizza.name}`);
         const pizzaName = document.createElement("h3");
         pizzaName.textContent = currentPizza.name;
         currentCard.appendChild(pizzaName);
