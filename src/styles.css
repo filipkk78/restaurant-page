@@ -73,6 +73,22 @@ header nav button {
     font-size: 2em;
 }
 
+header nav button:hover {
+    position: relative;
+    animation-name: btnhover;
+    animation-duration: 120ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes btnhover {
+  from {
+    bottom: 0px;
+  }
+  to {
+  bottom: 8px;
+  }
+}
+
 header nav button:active {
     background-color: #000000 ;
 }
