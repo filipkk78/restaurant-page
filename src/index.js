@@ -30,9 +30,4 @@ contactBtn.addEventListener("click", () => {
     loadContactPage();
 });
 
-const clearBtn = document.querySelector("#clear");
-clearBtn.addEventListener("click", () => {
-    clearPage();
-});
-
 export default clearPage;
